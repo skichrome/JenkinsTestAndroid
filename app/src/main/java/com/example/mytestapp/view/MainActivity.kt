@@ -2,8 +2,8 @@ package com.example.mytestapp.view
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +14,8 @@ import com.example.mytestapp.viewmodel.MainViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity(), RepositoryRVAdapter.OnItemClickListener
+class MainActivity : DaggerAppCompatActivity(), RepositoryRVAdapter.OnItemClickListener,
+    LifecycleOwner
 {
     // =======================================
     //                  Fields
