@@ -22,4 +22,9 @@ class ExampleInstrumentedTest {
         Log.e("Tests", "AppContext : ${appContext.packageName}")
         assertEquals("com.example.mytestapp.demoproduction", appContext.packageName)
     }
+    
+    @Test
+    fun failTestForJenkins() {
+        assertEquals("FAIL", "PASS")
+    }
 }
