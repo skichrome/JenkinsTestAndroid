@@ -24,7 +24,7 @@ class ExampleInstrumentedTest {
     }
     
     @Test
-    fun failTestForJenkins() {
-        assertEquals("FAIL", "PASS")
+    fun failTestForJenkinsNowPass() {
+        assertEquals("PASS", "PASS")
     }
 }
