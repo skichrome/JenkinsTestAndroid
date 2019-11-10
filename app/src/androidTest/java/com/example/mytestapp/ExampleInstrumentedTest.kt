@@ -1,7 +1,5 @@
 package com.example.mytestapp
 
-
-import android.util.Log
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.assertEquals
@@ -14,17 +12,28 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ExampleInstrumentedTest
+{
     @Test
-    fun useAppContext() {
+    fun useAppContext()
+    {
+        val currentPackageName = "com.example.mytestapp" + when (BuildConfig.FLAVOR)
+        {
+            "mock" -> ".mock"
+            "demoTesting" -> ".demotesting"
+            "demoProduction" -> ".demoproduction"
+            else -> ""
+        }
+
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        Log.e("Tests", "AppContext : ${appContext.packageName}")
-        assertEquals("com.example.mytestapp.demoproduction", appContext.packageName)
+
+        assertEquals(currentPackageName, appContext.packageName)
     }
-    
+
     @Test
-    fun failTestForJenkinsNowPass() {
+    fun failTestForJenkinsNowPass()
+    {
         assertEquals("PASS", "PASS")
     }
 }
